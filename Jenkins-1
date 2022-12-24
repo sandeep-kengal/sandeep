@@ -3,9 +3,14 @@ pipeline {
     stages {
       stage ('Git') {
         steps {
-        git branch: 'main', url: 'https://github.com/jaintpharsha/Devops-October-2022.git'
+        git branch: 'main', url: 'https://github.com/sandeep-kengal/Devops-October-2022.git'
         }
         }
+        stage ('Build')
+        {
+        sh '''
+        docker -version
+        '''
         }
         }
       
