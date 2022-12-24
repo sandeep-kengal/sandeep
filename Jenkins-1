@@ -1,0 +1,11 @@
+pipeline {
+ agent any
+    stages {
+      stage ('Git') {
+        steps {
+        git branch: 'main', url: 'https://github.com/jaintpharsha/Devops-October-2022.git'
+        }
+        }
+        }
+        }
+      
