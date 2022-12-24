@@ -1,14 +1,14 @@
 pipeline {
   agent any
+  environment {
+    DOCKERHUB_CREDENTIALS = "credentials('dockerhub')"
+}
          stages {
-           stage ('First')
-           {
-             steps {
-               sh '''
-                   echo "Hi  "
-                   '''
-             }
-           }
+          stage(‘Login') {
+steps {
+sh ‘echo $DOCKERHUB_CREDENTIALS_PSW | docker Login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin’
+}
+
            stage ('Docker') {
              steps{
                sshagent(['e0188ef3-6d2c-4aa6-acfb-a8ab07173e5a']) {
@@ -23,3 +23,4 @@ pipeline {
          }
 }
   
+     
