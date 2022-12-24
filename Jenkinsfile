@@ -4,7 +4,7 @@ pipeline {
     DOCKERHUB_CREDENTIALS = "credentials('dockerhub')"
 }
          stages {
-          stage(‘Login') {
+          stage('Login') {
 steps {
 sh ''' echo $DOCKERHUB_CREDENTIALS_PSW | docker Login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin '''
 }
