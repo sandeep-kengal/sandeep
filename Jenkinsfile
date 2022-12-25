@@ -14,7 +14,7 @@ sh ''' echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_
                sshagent(['e0188ef3-6d2c-4aa6-acfb-a8ab07173e5a']) {
                 sh ''' docker --version
                       docker build -t kengalsandeep/myapp /home/ubuntu/Devops-October-2022/applications/maven_app
-                      docker run -rm -p 8080:8080 myapp 
+                      docker run --rm -p 8080:8080 kengalsandeep/myapp
                 '''
 }
              }
