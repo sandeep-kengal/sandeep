@@ -1,9 +1,10 @@
 pipeline {
-  agent any
+  agent none
   environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
 }
          stages {
+           agent {label ('Docker')
           stage('Login') {
 steps {
 sh ''' echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin '''
