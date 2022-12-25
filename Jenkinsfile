@@ -1,5 +1,3 @@
-#script
-
 pipeline {
   agent any
   environment {
