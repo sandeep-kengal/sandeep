@@ -11,6 +11,7 @@ sh ''' echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_
 }
                 }
               stage ('Docker') {
+                agent {label ('Docker')}
              steps{
                sshagent(['e0188ef3-6d2c-4aa6-acfb-a8ab07173e5a']) {
                 sh ''' docker --version
@@ -21,6 +22,7 @@ sh ''' echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_
              }
               }
              stage ('push'){
+               agent {label ('Docker')}
                steps {
                sh ''' docker push kengalsandeep/myapp '''
                }
